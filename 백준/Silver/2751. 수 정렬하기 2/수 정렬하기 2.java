@@ -1,6 +1,8 @@
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
 
@@ -15,15 +17,17 @@ public class Main {
             // code
 
             Integer n = Integer.valueOf(br.readLine());
-            Integer[] numArray = new Integer[n];
+//            Integer[] numArray = new Integer[n];
+            List<Integer> nums = new LinkedList<>();
 
             for (int i=0; i<n; i++) {
-                numArray[i] = Integer.valueOf(br.readLine());
+                nums.add(Integer.valueOf(br.readLine()));
             }
 
-            Arrays.sort(numArray);
-
-            for (Integer num : numArray) {
+//            Arrays.sort(numArray);
+            Collections.sort(nums);
+            
+            for (Integer num : nums) {
                 sb.append(num + "\n");
             }
 
