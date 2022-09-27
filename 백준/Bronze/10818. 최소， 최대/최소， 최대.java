@@ -1,8 +1,5 @@
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -17,13 +14,18 @@ public class Main {
 
             int N = Integer.parseInt(br.readLine());
             StringTokenizer stringTokenizer = new StringTokenizer(br.readLine());
-            List<Integer> numbers = new ArrayList<>();
 
-            for (int i = 0; i < N; i++) {
-                numbers.add(Integer.parseInt(stringTokenizer.nextToken()));
+            int firstNumber = Integer.parseInt(stringTokenizer.nextToken());
+            int max = firstNumber;
+            int min = firstNumber;
+            for (int i = 1; i < N; i++) {
+                int number = Integer.parseInt(stringTokenizer.nextToken());
+
+                max = Math.max(max, number);
+                min = Math.min(min, number);
             }
 
-            sb.append(Collections.min(numbers)).append(" ").append(Collections.max(numbers));
+            sb.append(min).append(" ").append(max);
 
             bw.write(sb.toString());
             bw.flush();
