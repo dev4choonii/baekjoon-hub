@@ -8,38 +8,27 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-
-        try (br; bw) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8))) {
             StringBuilder sb = new StringBuilder();
+            // code ////////////////////////////////////////////////////////////////////////////////////////
 
-            // code
+            int n = Integer.parseInt(br.readLine());
 
-            Integer n = Integer.valueOf(br.readLine());
-//            Integer[] numArray = new Integer[n];
-            List<Integer> nums = new LinkedList<>();
-
-            for (int i=0; i<n; i++) {
-                nums.add(Integer.valueOf(br.readLine()));
+            List<Integer> numbers = new LinkedList<>();
+            while (n > 0) {
+                numbers.add(Integer.parseInt(br.readLine()));
+                n--;
             }
 
-//            Arrays.sort(numArray);
-            Collections.sort(nums);
-            
-            for (Integer num : nums) {
-                sb.append(num + "\n");
+            Collections.sort(numbers);
+            for (Integer number : numbers) {
+                sb.append(number).append("\n");
             }
 
-            ////////////////////
-
+            ////////////////////////////////////////////////////////////////////////////////////////////////
             bw.write(sb.toString());
             bw.flush();
         }
     }
 }
-
-
-
-
-
